@@ -126,11 +126,8 @@ export default function App() {
       <header className="header">
         <div className="logo">
           <div className="logo-mark">U</div>
-          <span className="logo-text">UserManager</span>
+          <span className="logo-text">Oyana User Manager</span>
         </div>
-        <p className="header-meta">
-          Powered by <span>ReqRes API</span>
-        </p>
       </header>
 
       <main className="main">
