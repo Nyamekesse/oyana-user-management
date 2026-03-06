@@ -1,10 +1,16 @@
 import type { CreateUserResponse, User, UserFormData, UsersResponse } from "../types";
 
 
-const BASE_URL = "https://reqres.in/api";
+const BASE_URL = "/api";
+
+const headers: HeadersInit = {
+  "Content-Type": "application/json",
+  "x-api-key": import.meta.env.VITE_REQRES_API_KEY ?? "",
+};
+
 
 export async function fetchUsers(page: number): Promise<UsersResponse> {
-  const res = await fetch(`${BASE_URL}/users?page=${page}`);
+  const res = await fetch(`${BASE_URL}/users?page=${page}`, { headers });
   if (!res.ok) throw new Error("Failed to fetch users");
   return res.json();
 }
@@ -12,7 +18,7 @@ export async function fetchUsers(page: number): Promise<UsersResponse> {
 export async function createUser(data: UserFormData): Promise<CreateUserResponse> {
   const res = await fetch(`${BASE_URL}/users`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify(data),
   });
   if (!res.ok) throw new Error("Failed to create user");
@@ -22,7 +28,7 @@ export async function createUser(data: UserFormData): Promise<CreateUserResponse
 export async function updateUser(id: number, data: UserFormData): Promise<User> {
   const res = await fetch(`${BASE_URL}/users/${id}`, {
     method: "PUT",
-    headers: { "Content-Type": "application/json" },
+    headers,
     body: JSON.stringify(data),
   });
   if (!res.ok) throw new Error("Failed to update user");
@@ -30,6 +36,6 @@ export async function updateUser(id: number, data: UserFormData): Promise<User> 
 }
 
 export async function deleteUser(id: number): Promise<void> {
-  const res = await fetch(`${BASE_URL}/users/${id}`, { method: "DELETE" });
+  const res = await fetch(`${BASE_URL}/users/${id}`, { method: "DELETE", headers });
   if (!res.ok) throw new Error("Failed to delete user");
 }
