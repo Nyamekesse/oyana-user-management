@@ -2,6 +2,15 @@
 
 A single-page React application built with TypeScript and Vite that interacts with the [ReqRes API](https://reqres.in) to display and manage a list of users.
 
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Local Setup](#local-setup)
+- [Screenshots](#screenshots)
+- [Design Decisions](#design-decisions)
+
 ## Features
 
 - **List & Paginate** — Fetches users from `GET /users?page={n}` with numbered pagination controls
@@ -94,6 +103,29 @@ npm run dev
 ```
 
 The app will be available at `http://localhost:5173`.
+
+## Screenshots
+
+![User List Display](screenshots/user-list-display.png)
+_User list display_
+
+![User Data Addition Form](screenshots/user-data-addition-1.png)
+_User data addition form_
+
+![Successful User Data Addition](screenshots/user-data-addition-2.png)
+_Successful user data addition_
+
+![User Data Update Form](screenshots/user-data-update-1.png)
+_User data update form_
+
+![Successful User Data Update](screenshots/user-data-update-2.png)
+_Successful user data update_
+
+![Delete User Data Confirmation](screenshots/user-deletion-1.png)
+_Delete user confirmation_
+
+![Succesful User Data Deletion](screenshots/user-deletion-2.png)
+_Successful user data deletion_
 
 ## Design Decisions
 
